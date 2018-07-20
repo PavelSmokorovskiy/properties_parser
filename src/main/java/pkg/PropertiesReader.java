@@ -1,8 +1,6 @@
 package pkg;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -12,11 +10,13 @@ public class PropertiesReader {
 
         Properties prop = new Properties();
         InputStream input = null;
+        OutputStream output = null;
         Map<String, String> map = new HashMap();
 
         try {
 
             input = new FileInputStream("/home/pavel/downloads/base_en.properties");
+
 
             prop.load(input);
 
@@ -27,8 +27,12 @@ public class PropertiesReader {
                 System.out.println("key: " + entry.getKey() + ", value: " + entry.getValue());
             }
 
-
-
+        try {
+            output = new FileOutputStream("/home/pavel/downloads/impex.impex");
+            prop.store(output, null);
+        } finally {
+                output.close();
+        }
 
         } catch (IOException ex) {
             ex.printStackTrace();
