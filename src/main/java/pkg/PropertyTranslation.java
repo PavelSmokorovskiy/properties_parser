@@ -16,6 +16,7 @@ public class PropertyTranslation {
     static String PATH = "/home/pavel/downloads/base_%s.properties";
     static String OUT_PATH = "/home/pavel/downloads/translation_export.xlsx";
     static String IMPEX_FILE = "/home/pavel/downloads/file.impex";
+    static String FOS_FILE = "/home/pavel/downloads/fos.impex";
     static String BASE_PROPERTY = "en";
 
     public static void main(String[] args) {
