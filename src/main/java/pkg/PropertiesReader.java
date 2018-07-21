@@ -8,42 +8,27 @@ import java.util.Properties;
 public class PropertiesReader {
     public static void main(String[] args) {
 
-        Properties prop = new Properties();
-        InputStream input = null;
-        OutputStream output = null;
-        Map<String, String> map = new HashMap();
+        try (FileOutputStream fileOutputStream = new FileOutputStream(new File("src/main/java/pkg/impex.impex"))) {
 
-        try {
+            Properties properties = new Properties();
+            properties.load(new FileInputStream("/home/pavel/downloads/base_en.properties"));
 
-            input = new FileInputStream("/home/pavel/downloads/base_en.properties");
+            HashMap<Object, Object> map = new HashMap<>(properties);
 
+            PrintWriter printWriter = new PrintWriter(fileOutputStream);
 
-            prop.load(input);
+            printWriter.println("INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[unique=true];PROPERTY_VALUE[lang=en]\n" +
+                    ";PROPERTY_NAME_VALUE;PROPERTY_TYPE_VALUE;PROPERTY_VALUE_VALUE");
 
-            for (final String name: prop.stringPropertyNames())
-                map.put(name, prop.getProperty(name));
-
-            for (Map.Entry entry : map.entrySet()) {
-                System.out.println("key: " + entry.getKey() + ", value: " + entry.getValue());
+            for (Map.Entry<Object, Object> entry : map.entrySet()) {
+                printWriter.println(";" + entry.getKey() + ";;" + entry.getValue());
             }
 
-        try {
-            output = new FileOutputStream("/home/pavel/downloads/impex.impex");
-            prop.store(output, null);
-        } finally {
-                output.close();
-        }
+            printWriter.flush();
+            printWriter.close();
 
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } finally {
-            if (input != null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
