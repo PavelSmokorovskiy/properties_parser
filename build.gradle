@@ -25,5 +25,5 @@ repositories {
 
 dependencies {
     compile group: 'com.google.collections', name: 'google-collections', version: '1.0'
-    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
 }

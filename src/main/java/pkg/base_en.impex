@@ -1,5 +1,4 @@
 INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[unique=true];PROPERTY_VALUE[lang=en]
-;PROPERTY_NAME_VALUE;PROPERTY_TYPE_VALUE;PROPERTY_VALUE_VALUE
 ;text.pa.lists.delete.button;;Delete
 ;b2bcustomer.cancel;;Cancel
 ;text.manageaccount.accounts;;Accounts
@@ -202,7 +201,7 @@ INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[uniqu
 ;text.request.request.summary;;Request Summary
 ;text.menu.request.title;;Requests
 ;text.sp.downloadCatalogList;;Download Catalog List
-;text.pa.prod.detail.scheduled.repl.text;;Replenishment schedule reflects incoming shipments from our mfg. facilities. Quantities shown are subject to availability âbased on existing ordersâ. Please consult with customer service to confirm quantity availability.
+;text.pa.prod.detail.scheduled.repl.text;;Replenishment schedule reflects incoming shipments from our mfg. facilities. Quantities shown are subject to availability “based on existing orders”. Please consult with customer service to confirm quantity availability.
 ;text.checkout.partial.delivery.no;;No, do not ship until all items become available
 ;feedback.include_screenshot;;Include screenshot
 ;text.orderStatus.S;;Shipped
@@ -614,7 +613,7 @@ INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[uniqu
 ;text.pa.warn.product.error.cancel.label;;Cancel
 ;text.rebate.create.agreementRequest.info;;Identify products to create Agreement Credit Request
 ;text.adv.search.prod.category;;Product Category
-;register.notification.email.to.submit.account.request;;To submit an account request â just log in to www.geempower.com with your userid & password, and after logging in, click on the button to add accounts. We will hold your pending registration for 48 hours. If you have any issues, you can contact us at ge.empoweru@ge.com. <br><br>
+;register.notification.email.to.submit.account.request;;To submit an account request – just log in to www.geempower.com with your userid & password, and after logging in, click on the button to add accounts. We will hold your pending registration for 48 hours. If you have any issues, you can contact us at ge.empoweru@ge.com. <br><br>
 ;text.account.tracking.show.details;;Show Details
 ;text.checkout.shipment.stock;;In Stock Shipment
 ;text.sp.ready.download;;Ready for Download
@@ -774,7 +773,7 @@ INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[uniqu
 ;text.privileges.quotes.title;;Quotes
 ;text.rebate.popup.text;;Please enter a new rebates list name
 ;text.company.manageUser.accountdetails;;Account Details
-;sap.message.product.message_1;;Item was priced at PF Product Family Level â Price Group 2
+;sap.message.product.message_1;;Item was priced at PF Product Family Level – Price Group 2
 ;text.checkout.expect.tipNew;;When can I expect my order to ship
 ;text.pd.publications;;Publications
 ;text.pa.warn.product.error.title;;Cart Error
@@ -1037,7 +1036,7 @@ INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[uniqu
 ;text.rebate.totalRequestCreditAmount;;Total Requested Credit Amount
 ;text.Qty;;Qty
 ;text.orders.daterange.calendar.thursday;;Th
-;text.popup.MailRemindBtn;;PÃ¥mind mig om 1 dag
+;text.popup.MailRemindBtn;;Påmind mig om 1 dag
 ;text.checkout.delete.confirmation;;Are you sure you want to delete the drop shipment Address
 ;text.checkout.delete;;Delete
 ;text.menu.request.allrequest.title;;All Requests
@@ -1061,7 +1060,7 @@ INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[uniqu
 ;text.return.providePO;;<strong>Yes,</strong> please inform a PO / Order Number
 ;text.user.details.associated.engineer.codes;;The following are the Sales Engineer codes associated with this user.
 ;text.pa.productnumber.label;;Product Number
-;export.document.copyright;;Â© 2018 <b>ABB.</b>
+;export.document.copyright;;© 2018 <b>ABB.</b>
 ;text.spaStatus.active;;Active
 ;validation.po_number;;Po Number
 ;text.pa.spamultiplier.label;;SPA Multiplier
@@ -1135,7 +1134,7 @@ INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[uniqu
 ;text.total.usd;;Total Amount ({0})
 ;text.selector.priceSchedule.EMOSchedule;;EMO Schedule
 ;text.manageaccount.salesEngineerCodes;;Sales Engineer Codes
-;text.checkout.shipping.info.every.attempt;;Every attempt is made to meet our customerâs request dates. Scheduled ship and delivery dates are calculated using many factors including
+;text.checkout.shipping.info.every.attempt;;Every attempt is made to meet our customer’s request dates. Scheduled ship and delivery dates are calculated using many factors including
 ;cart.carrier.usf_reddaway;;USF Reddaway
 ;text.account.management.email;;Email
 ;northAmerica;;North America
@@ -1227,13 +1226,13 @@ INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[uniqu
 ;text.checkout.checkout;;Checkout
 ;text.orders.daterange.calendar.january;;January
 ;text.checkout.shipping.info.designated;;Designated ship cycle
-;text.return.need.additional.info;;Need additional information. Click on â <i class="info-icon" style="vertical-align: bottom"></i> â icon to add information.
+;text.return.need.additional.info;;Need additional information. Click on “ <i class="info-icon" style="vertical-align: bottom"></i> “ icon to add information.
 ;text.discontinued;;Discontinued
 ;text.return.additionalInfoIconTooltip;;Additional information is required for this line item
 ;text.selector.priceSchedule.scheduleCS-100;;Schedule CS-100
 ;text.privileges.documents.group;;Documents Work Group
 ;text.pa.shipadd.pleaseselect.label;;Please select the ship to address that is being priced on
-;Remind;;me in 1 day	PÃ¥mind mig om 1 dag
+;Remind;;me in 1 day	Påmind mig om 1 dag
 ;text.account.management.users.list;;The following are the list of users associated with this account.
 ;text.pa.lists.noofitems.label;;No. of Items
 ;text.description;;Description
@@ -1256,7 +1255,7 @@ INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[uniqu
 ;user.already.exists;;User already Exists
 ;text.rebate.popup.updateRebateDetails;;Update and replace rebate details in:
 ;text.user.privilege.accept.sec;;Are you sure you want to accept the selected sales engineer codes?
-;text.checkout.shipping.info.recommendation;;We recommend using Order Tracking to get up to date information regarding scheduled ship/ delivery dates including carrier name and catalog number that links to the carrierâs website for easy shipment tracking.
+;text.checkout.shipping.info.recommendation;;We recommend using Order Tracking to get up to date information regarding scheduled ship/ delivery dates including carrier name and catalog number that links to the carrier’s website for easy shipment tracking.
 ;text.sp.select;;Select
 ;text.request.identify.products;;Identify Products
 ;text.pa.customerreferenceno.label;;Customer Reference No.
@@ -1395,7 +1394,7 @@ INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[uniqu
 ;register.company.name;;Company Name
 ;text.pa.lists.selectlist.label;;Please select a list to add the item to
 ;text.results.table.ofSimple;;of
-;export.document.trademark.of;;Â® <b>ABB.</b>
+;export.document.trademark.of;;® <b>ABB.</b>
 ;text.return.shortageNoted;;Shortage noted on delivery?
 ;error.account.msg;;Please fill in the required field(s)
 ;text.pa.additem.add;;Add
@@ -1496,7 +1495,7 @@ INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[uniqu
 ;password.strength.veryweak;;Very weak
 ;text.page.requests.status;;Status
 ;text.rebate.requested.credit.amt.per.unit;;Requested Credit Amount
-;text.write_message;;Write a messageâ¦
+;text.write_message;;Write a message…
 ;register.customer.note;;Note: You must be an existing customer of Industrial Solutions in order to use empower. If you are not an existing customer:
 ;text.checkout.bill.to;;Bill To
 ;text.rebate.filters.geCreditMemoNo;;Credit Memo No.

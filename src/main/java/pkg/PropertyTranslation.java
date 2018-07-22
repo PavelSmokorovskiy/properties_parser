@@ -1,113 +1,62 @@
 package pkg;
 
 import com.google.common.collect.Lists;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.log4j.Logger;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
-
-import static pkg.PropertyTranslation.*;
 
 public class PropertyTranslation {
 
-    static String PATH = "/home/pavel/downloads/base_%s.properties";
-    static String OUT_PATH = "/home/pavel/downloads/translation_export.xlsx";
-    static String IMPEX_FILE = "/home/pavel/downloads/file.impex";
-    static String FOS_FILE = "/home/pavel/downloads/fos.impex";
-    static String BASE_PROPERTY = "en";
+    private static final Logger logger = Logger.getLogger(PropertyTranslation.class);
+
+    private static String IN_PATH = "src/main/java/pkg/base_%s.properties";
+    private static String OUT_PATH = "src/main/java/pkg/base_%s.impex";
+    private static String IMPEX_HEADER = "INSERT_UPDATE PROPERTY_TABLE_NAME;PROPERTY_NAME[unique=true];PROPERTY_TYPE[unique=true];PROPERTY_VALUE[lang=%s]";
+
+    private static List<String> locales = Lists.newArrayList(Arrays.asList("en"));
 
     public static void main(String[] args) {
-        try {
-            new PropertiesTranslation().go();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        new PropertyTranslation().go();
     }
 
-}
+    public void go() {
 
-class PropertiesTranslation {
-
-    private static List<String> locales = Lists.newArrayList(Arrays.asList("en", "es_ES"));
-
-    void go() throws Exception {
-
-        try (FileWriter writer = new FileWriter(IMPEX_FILE)) {
-
-            writer.write("kek");
-
-        }
-
-        try (XSSFWorkbook workbook = new XSSFWorkbook(); FileOutputStream outputStream = new FileOutputStream(OUT_PATH)) {
-            XSSFSheet sheet = workbook.createSheet();
-            writeHeader(sheet);
-            writeData(sheet);
-            workbook.write(outputStream);
-        }
-    }
-
-    private void writeData(XSSFSheet sheet) throws IOException {
-
-        OrderedProperties baseProp = getPropertyResource(BASE_PROPERTY);
-
-        for (Object o : baseProp.keySet()) {
-            int i = 0;
-            String key = (String) o;
-
-            XSSFRow row = sheet.createRow(sheet.getLastRowNum() + 1);
-            row.createCell(i).setCellValue(key);
-
-            for (String locale : locales) {
-                i += 1;
-                row.createCell(i).setCellValue(getPropertyResource(locale).getProperty(key));
-            }
-        }
-    }
-
-    private void writeHeader(XSSFSheet sheet) throws IOException {
-
-
-        XSSFRow row = sheet.createRow(0);
-        int i = 1;
         for (String locale : locales) {
-            XSSFCell cell = row.createCell(i);
-            cell.setCellValue(locale);
-            i++;
+            writeData(locale);
         }
-        sheet.setColumnWidth(0, 13560);
     }
 
-    private static Map<String, OrderedProperties> translations = new HashMap<>();
+    private String getPathWithLocale(String path, String locale) {
+        return String.format(path, locale);
+    }
 
-    private OrderedProperties getPropertyResource(String locale) {
+    private void writeData(String locale) {
 
-        if (!translations.containsKey(locale)) {
-            OrderedProperties p = new OrderedProperties();
-            try {
-                p.load(new BufferedReader(new InputStreamReader(new FileInputStream(getPropPath(locale)), "UTF-8")));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        try (FileOutputStream fileOutputStream = new FileOutputStream(
+                new File(getPathWithLocale(OUT_PATH, locale)))) {
+
+            Properties properties = new Properties();
+            properties.load(new FileInputStream(getPathWithLocale(IN_PATH, locale)));
+
+            HashMap<Object, Object> map = new HashMap<>(properties);
+
+            PrintWriter printWriter = new PrintWriter(
+                    new OutputStreamWriter(fileOutputStream, StandardCharsets.ISO_8859_1), true);
+
+            printWriter.println(getPathWithLocale(IMPEX_HEADER, locale));
+
+            for (Map.Entry<Object, Object> entry : map.entrySet()) {
+                printWriter.println(";" + entry.getKey() + ";;" + entry.getValue());
             }
 
-            translations.put(locale, p);
+            printWriter.flush();
+            printWriter.close();
+
+        } catch (IOException e) {
+            logger.info(e);
         }
-
-        return translations.get(locale);
-    }
-
-    private String getPropPath(String locale) {
-        return String.format(PATH, locale);
-    }
-
-}
-
-class OrderedProperties extends Properties {
-    @Override
-    public synchronized Enumeration<Object> keys() {
-        return Collections.enumeration(new TreeSet<Object>(super.keySet()));
     }
 }
-
